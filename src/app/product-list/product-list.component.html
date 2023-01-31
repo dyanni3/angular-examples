@@ -13,14 +13,14 @@ content_copy
     Description: {{ product.description }}
   </p>
 
-  <button type="button" (click)="loadChildDetails(product)">
+  <button type="button" (click)="setWhichProductDetails(product)">
     More Info
   </button>
 
-<div *ngIf='loadDetails.get(product)'>
-  <app-node-child
-  [product]="product">
-</app-node-child>
 </div>
 
+<div *ngIf = 'productSelected'>
+<app-node-child
+[product]="whichProductDetails()">
+</app-node-child>
 </div>

@@ -12,13 +12,20 @@ export class ProductListComponent {
   products = products;
   loadDetails: Map<Product, boolean> = new Map();
   nodeChild = new NodeChildComponent();
+  productSelected = false;
+  whichProduct!: Product;
 
   share() {
     this.nodeChild.share();
   }
 
-  loadChildDetails(product: Product) {
-    this.loadDetails.set(product, true);
+  setWhichProductDetails(product: Product) {
+    this.whichProduct = product;
+    this.productSelected = true;
+  }
+
+  whichProductDetails(): Product {
+    return this!.whichProduct;
   }
 
   constructor() {
